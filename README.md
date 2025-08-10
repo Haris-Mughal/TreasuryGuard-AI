@@ -1,73 +1,68 @@
-# Welcome to your Lovable project
+# 🚀 Treasury Guard AI  
+**Autonomous, AI-powered treasury protection for DAOs on NEAR**  
 
-## Project info
+## 🌟 Overview  
+Treasury Guard AI is a **NEAR-powered autonomous agent** that safeguards DAO and DeFi treasuries in **real time**.  
+Built on the **Shade Agent Framework** with **Trusted Execution Environments (TEE)**, it can monitor markets, predict risks, and execute strategies — all without relying on centralized control.  
 
-**URL**: https://lovable.dev/projects/4ff2b30a-0625-47e6-8992-2d1038f16789
+💡 **Tagline:**  
+> *Your DAO’s autonomous financial bodyguard.*  
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🎯 Problem  
+DAO treasuries today are vulnerable to:  
+- 🕑 **Slow responses** to market events  
+- 🏦 **Manual intervention** for asset management  
+- ❌ **Centralized bots** prone to hacks and mismanagement  
+- 🔓 **Key exposure risks** when automating  
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/4ff2b30a-0625-47e6-8992-2d1038f16789) and start prompting.
+## 💡 Solution  
+Treasury Guard AI:  
+- **Autonomous Agent:** Runs verifiably inside a **TEE** for privacy and security  
+- **AI-Powered Decisions:** Predicts risks & triggers predefined safe actions  
+- **On-chain Execution:** Directly interacts with NEAR smart contracts  
+- **Cross-chain Ready:** Works with EVM chains via Aurora & chain abstraction  
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🛠️ Tech Stack  
+- **Blockchain Layer:** [NEAR Protocol](https://near.org)  
+- **Agent Framework:** [Shade Agents](https://docs.near.org/ai/shade-agents/introduction)  
+- **Cross-chain:** [Aurora](https://aurora.dev)  
+- **AI Layer:** Custom ML models & LLM APIs  
+- **Frontend:** React / Next.js  
+- **Deployment:** Vercel  
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## ⚙️ How It Works  
+1. **Monitoring:** Agent listens to market data & on-chain activity  
+2. **Decision:** AI model determines risk or opportunity  
+3. **Execution:** Agent triggers on-chain transactions securely via TEE  
+4. **Reporting:** Live dashboard for DAO members  
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🚀 Live Demo  
+🌐 **Web App:** [treasury-guard-ai.vercel.app](https://treasury-guard-ai.vercel.app)  
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🏆 Hackathon Info
+Built for **Fork That NYC NEAR Hackathon 2025**
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+### Tracks:
+- Autonomous Agents on NEAR
+- Chain Abstraction & Account Aggregation
+- AI + Web3 Security
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📬 Contact
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/4ff2b30a-0625-47e6-8992-2d1038f16789) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Dev: [Haris Mughal](https://www.linkedin.com/in/iamharisahsan/)
+GitHub: [@haris-mughal](https://github.com/Haris-Mughal)
+Twitter: [@iamharisahsan](https://x.com/iamharisahsan)
