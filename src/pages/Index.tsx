@@ -1,11 +1,15 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Brain, Shield, Zap } from "lucide-react";
+import { Brain, Shield, Zap, Sparkles, Rocket } from "lucide-react";
 import { useWallet } from "@/contexts/WalletContext";
 import { useNavigate, Link, NavLink } from "react-router-dom";
 import Logo from "@/components/Logo";
+import TerminalLogs from "@/components/TerminalLogs";
+import { toast } from "@/components/ui/sonner";
+import confetti from "canvas-confetti";
 
 const FeatureCard = ({ icon: Icon, title, desc }: { icon: any; title: string; desc: string }) => (
   <Card className="glass-panel">
@@ -23,6 +27,22 @@ const Index = () => {
   const { connected, connect } = useWallet();
   const navigate = useNavigate();
 
+  const [deployed, setDeployed] = useState(false);
+  const [txHash, setTxHash] = useState<string | null>(null);
+
+  const handleDeploy = () => {
+    if (deployed) return;
+    // Confetti burst
+    confetti({ particleCount: 80, spread: 70, origin: { y: 0.3 } });
+    setTimeout(() => confetti({ particleCount: 60, angle: 60, spread: 55, origin: { x: 0 } }), 150);
+    setTimeout(() => confetti({ particleCount: 60, angle: 120, spread: 55, origin: { x: 1 } }), 300);
+
+    const fakeHash = "0x4fa3...b9d8";
+    setTxHash(fakeHash);
+    setDeployed(true);
+    toast.success("Deployed to NEAR TEE", { description: `Tx: ${fakeHash}` });
+  };
+
   return (
     <div className="relative min-h-screen flex flex-col overflow-hidden">
       <Helmet>
@@ -31,6 +51,15 @@ const Index = () => {
         <link rel="canonical" href="/" />
       </Helmet>
       <div className="aurora" />
+
+      <div className="relative z-20 w-full bg-background/60 border-b backdrop-blur supports-[backdrop-filter]:glass-panel">
+        <div className="container mx-auto px-4 h-9 flex items-center justify-center">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel shadow-glow text-xs">
+            <Sparkles className="h-3.5 w-3.5 text-primary" />
+            <span className="font-display tracking-wide">Powered by Shade Agents</span>
+          </span>
+        </div>
+      </div>
 
       <header className="relative z-10 w-full border-b bg-background/60 backdrop-blur supports-[backdrop-filter]:glass-panel">
         <div className="container mx-auto px-4 h-14 flex items-center justify-between">
@@ -82,9 +111,42 @@ const Index = () => {
             >
               {connected ? "Go to Dashboard" : "Connect NEAR Wallet"}
             </Button>
-            <Button variant="glass" size="lg" className="hover-scale" onClick={() => navigate("/dashboard")}>Explore Dashboard</Button>
+            <Button variant="glass" size="lg" className="hover-scale" onClick={() => navigate("/dashboard")}>
+              Explore Dashboard
+            </Button>
+            <Button
+              variant="glow"
+              size="xl"
+              className="hover-scale shadow-glow"
+              aria-label="Deploy to NEAR TEE"
+              title="Deploy Shade Agent to NEAR TEE"
+              onClick={handleDeploy}
+            >
+              <Rocket className="mr-2 h-5 w-5" /> Deploy to NEAR TEE
+            </Button>
           </motion.div>
         </div>
+
+        {deployed && (
+          <div className="mt-4 text-center">
+            <span className="inline-flex items-center gap-2 text-sm px-3 py-1 rounded-full glass-panel border shadow-glow">
+              <span className="h-2 w-2 rounded-full bg-[hsl(var(--brand-1))]" />
+              <span>Agent deployed • Tx: <code className="font-mono text-primary">{txHash}</code></span>
+            </span>
+          </div>
+        )}
+
+        <section className="mt-10">
+          <TerminalLogs
+            active={deployed}
+            lines={[
+              "Agent deployed to NEAR @ block #12345678",
+              "Monitoring market: NEAR/USD",
+              "Condition met: Buy 50 NEAR",
+              "TX confirmed: hash 0xABCD1234EF567890...",
+            ]}
+          />
+        </section>
 
         <section className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
